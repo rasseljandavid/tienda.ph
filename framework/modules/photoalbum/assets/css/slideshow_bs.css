@@ -1,0 +1,30 @@
+ul .slideshow-frame-ex li.slide {
+	list-style: none;
+}
+
+.slide > img,
+.slide > a > img {
+  width: 100%;
+}
+
+.slideshow-container ul {
+	margin : 0;
+	padding : 0;
+	padding-left: 0;
+}
+
+.slideshow-frame-ex .item-actions {
+    position:absolute;
+    left:5px;
+    bottom:5px;
+    z-index:5;
+	display: none;
+}
+
+.slideshow-frame-ex:hover .item-actions {
+	display: block;
+}
+
+.slideshow-frame-ex .item-actions a {
+    display:block;
+}

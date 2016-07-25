@@ -1,0 +1,26 @@
+.portfolio.showall .thumb-imgs {
+    float:left;
+    display:block;
+    border:1px solid #333;
+    margin-right:10px;
+    padding:3px;
+    background:#dedede;
+}
+.portfolio.showall .thumb-imgs img {
+    display:block;
+}
+
+.portfolio.showall img {
+    display:block;
+}
+
+.portfolio.showall-simple-list .item {
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.portfolio.showall-simple-list .category h2 {
+    border: 1px;
+    border-color: black;
+    border-style: solid none;
+}

@@ -1,0 +1,56 @@
+/**
+* Container Module
+*/
+
+/**
+* Two Column View
+*/
+.containermodule.two-column {
+    border:0;
+}
+.containermodule.two-column .twocolcontainerleft {
+    width:49%;
+    float:left;
+}
+.containermodule.two-column .twocolcontainerright {
+    width:49%;
+    float:right;
+}
+div.containermodule.main-wrapper {
+    border-width:0 1px 1px 1px;
+    padding:0 0 5px 0;
+}
+
+/**
+* Three Column View
+*/
+.containermodule.three-column .col1,
+.containermodule.three-column .col2 {
+    width:31%;
+    float:left;
+}
+.containermodule.three-column .col2 {
+    margin-left:1.5em;
+}
+.containermodule.three-column .col3 {
+    width:32%;
+    float:right;
+}
+
+/**
+* Four Column View
+*/
+.containermodule.four-column .col1,
+.containermodule.four-column .col2,
+.containermodule.four-column .col3 {
+    width:23%;
+    float:left;
+}
+.containermodule.four-column .col2,
+.containermodule.four-column .col3 {
+    margin-left:1.0em;
+}
+.containermodule.four-column .col4 {
+    width:24%;
+    float:right;
+}

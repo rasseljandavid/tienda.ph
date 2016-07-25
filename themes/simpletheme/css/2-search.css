@@ -1,0 +1,9 @@
+.search.show-form {
+    position:absolute;
+    right:0;
+    top:15px;
+}
+
+li.yui3-aclist-item pre img {
+	vertical-align: middle;
+}

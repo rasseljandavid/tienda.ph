@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>Exponent v2.3.5</title>
+    <parser>
+        <default-package-name>Framework</default-package-name>
+        <target>../exponent-api/phpdoc</target>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>../exponent-api</target>
+    </transformer>
+    <logging>
+        <level>warn</level>
+        <paths>
+            <default>../exponent-api/phpdoc/log/{DATE}.log</default>
+            <errors>../exponent-api/phpdoc/log/{DATE}.errors.log</errors>
+        </paths>
+    </logging>
+    <transformations>
+         <template name="responsive-twig" />
+    </transformations>
+    <files>
+        <directory>.</directory>
+        <ignore>external/*</ignore>
+        <ignore>files/*</ignore>
+        <ignore>tmp/*</ignore>
+        <ignore>themes/*</ignore>
+        <directory>themes/bootstrap3theme/*</directory>
+        <directory>themes/bootstraptheme/*</directory>
+        <directory>themes/simpletheme/*</directory>
+        <ignore>framework/conf/data/extra_phrases.php</ignore>
+        <ignore>framework/core/lang/*</ignore>
+        <ignore>framework/modules/pixidou/*</ignore>
+        <ignore>framework/modules/news/models/SimplePie.php</ignore>
+    </files>
+</phpdoc>

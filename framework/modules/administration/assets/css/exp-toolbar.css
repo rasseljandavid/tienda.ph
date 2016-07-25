@@ -1,0 +1,48 @@
+.exp-skin #admin-toolbar {
+  box-shadow: 0 1px 10px #000000;
+}
+.exp-skin #admin-toolbar .navbar-brand {
+  margin: 0;
+  padding: 7px 0 3px;
+}
+.exp-skin #admin-toolbar .dropdown-menu > li > a:hover,
+.exp-skin #admin-toolbar .exp-skin .dropdown-menu > li > a:focus {
+  background-color: #022f5a;
+}
+.exp-skin #admin-toolbar ul.dropdown-menu li {
+  list-style: none;
+}
+.exp-skin #admin-toolbar li.dropdown-submenu ul.dropdown-menu {
+  top: 0;
+  left: 100%;
+}
+.exp-skin #admin-toolbar .dropdown-header {
+  color: darkgray;
+  border: 1px dotted;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.exp-skin #admin-toolbar #orders2 form,
+.exp-skin #admin-toolbar #orders2 input.form-control,
+.exp-skin #admin-toolbar #ecomm form,
+.exp-skin #admin-toolbar #orderQuickfinder input.form-control {
+  min-width: 200px;
+  padding-top: 3px;
+  margin-bottom: 0;
+}
+.exp-skin #admin-toolbar .navbar-inverse .badge.alert-success,
+.exp-skin #admin-toolbar .yuimenuitemlabel .badge.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+.exp-skin .navbar .nav > li > a > .orders.label,
+.exp-skin .navbar .nav > li > a > .event.label {
+  position: absolute;
+  top: 9px;
+  text-align: center;
+  font-size: 9px;
+  padding: 2px 3px;
+  line-height: .9;
+}
