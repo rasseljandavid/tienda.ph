@@ -3,6 +3,7 @@
 {/css}
 
 <div class="module store showall scroll">
+	<h2>{$current_category->title}</h2>
     <div class="listing-row">
           {counter assign="ipr" name="ipr" start=1}
           {foreach from=$page->records item=listing name=listings}

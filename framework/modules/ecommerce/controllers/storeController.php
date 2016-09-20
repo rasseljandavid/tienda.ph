@@ -522,8 +522,12 @@ class storeController extends expController {
             eDebug($sections);
             $ancestors = $this->category->pathToNode();       
         }*/
-
-        $ancestors = $this->category->pathToNode();
+        global $db;
+        $sql  = "SELECT parent.* FROM exponent_storeCategories AS node, exponent_storeCategories AS parent WHERE node.parent_id = parent.id ";
+        $sql .= "AND node.id=" . $this->category->id . " ORDER BY parent.lft;";
+        
+        $ancestors = $db->selectObjectsBySql($sql);
+        $ancestors[] =  $this->category;
         // eDebug($ancestors);
         assign_to_template(array(
             'ancestors' => $ancestors
@@ -848,6 +852,7 @@ class storeController extends expController {
     }
 
     function show() {
+
         global $db, $order, $template, $user;
 
         expHistory::set('viewable', $this->params);

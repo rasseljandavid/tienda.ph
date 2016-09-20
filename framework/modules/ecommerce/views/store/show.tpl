@@ -25,7 +25,7 @@
     {message class=notice text=$product->user_message}
 {/if}
 
-<div class="module store show product">
+<div class="module store show product">1
     <div class="category-breadcrumb">
         <a href="{link controller=store action=showall}" title="{'View the Store'|gettext}">{'Store'|gettext}</a>&#160;&#160;&raquo;&#160;
         {foreach from=$ancestors item=ancestor name=path}
