@@ -6,8 +6,6 @@
 	
 
 */
-$cats = getCategories();
-
 foreach($cats as $cat) {    
 	
 	$sc = $db->selectObject("storeCategories", "title ='{$cat->ProductCategoryName}'");
@@ -80,6 +78,7 @@ foreach($products as $item) {
 	$obj->storecategories_id = $item->ProductCategoryID;
 	$obj->product_id         = $item->ProductID;
 	$obj->product_type       = "product";
+	$obj->rank       		 = 0;
 	$db->insertObject($obj, "product_storeCategories");
 }
 

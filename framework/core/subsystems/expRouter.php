@@ -359,7 +359,7 @@ class expRouter {
             ########################################################
             #FJD TODO:  this needs further refinement
             #currently this requires a matching routerMap as such to work properly:
-            /*
+         
             $maps[] = array('controller'=>'store',
                     'action'=>'showall',
                     'url_parts'=>array(                
@@ -370,7 +370,7 @@ class expRouter {
                     'url_parts'=>array(                
                             'title'=>'(.*)'),
             );
-            */
+        
             //if section is empty, we'll look for the page overrides first and route to 
             //routeActionRequest with some hand wacked variables. If we can't find an override
             //then we'll return false as usual
