@@ -1104,11 +1104,9 @@ class storeController extends expController {
     }
 
     function showFullTree() {  //FIXME we also need a showFullTree_images method like above
-        $category = new storeCategory(null, false, false);
-        //$categories = $category->getEcomSubcategories();
-        $categories = $category->getFullTree();
-        $ancestors = $this->category->pathToNode();
-
+        global $db;
+        $categories = $db->selectObjects("storeCategories");
+        
         $curcat = $this->category;
         assign_to_template(array(
             'categories_arr' => $categories,
