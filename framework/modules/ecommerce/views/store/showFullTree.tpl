@@ -19,7 +19,7 @@
 			{foreach from=$categories_arr item=category}
     			{if $category->is_active==1 || $user->is_acting_admin}
                     <li class="{if $curcat->id==$category->id}current{/if}{if $category->is_active!=1} inactive{/if}">
-                        <a href="{$category->sef_url}">{$category->title} <span class="productsincategory">{$category->product_count}</span></a>
+                        <a href="/{$category->sef_url}">{$category->title} <span class="productsincategory">{$category->product_count}</span></a>
                     </li>
 				{/if}
 			{/foreach}
