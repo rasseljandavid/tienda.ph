@@ -75,14 +75,14 @@ class expRouter {
     }
     
     public function makeLink($params, $force_old_school=false, $secure=false, $no_map=false) {
+
         $secure = ENABLE_SSL == 1 ? $secure : false;  // check if this site can use SSL if not then force the link to not be secure
         $linkbase =  $secure ? URL_BASE_SECURE : URL_BASE;
         $linkbase .= SCRIPT_RELATIVE;
-                
+           
         if (isset($params['section']) && $params['section'] == SITE_DEFAULT_SECTION) {            
             return self::cleanLink($linkbase);
         }
-
         // Check to see if SEF_URLS have been turned on in the site config
         if (SEF_URLS == 1 && ($_SERVER["PHP_SELF"] == PATH_RELATIVE.'index.php' || $_SERVER["PHP_SELF"] == PATH_RELATIVE.'install/index.php') && $force_old_school == false) {
            
@@ -123,11 +123,13 @@ class expRouter {
                         }
                     }
                 }
-
+                if($link == "/") {
+                    $link = "";
+                }
                 // if we found a mapping for this link then we can return it now.
                 //if ($link != '') return self::encode($linkbase.$link);
                 if ($link != '') return self::cleanLink($linkbase.$link);
-                
+             
                 if (!empty($params['controller'])) $link .= $params['controller'].'/';
                 if (!empty($params['action'])) $link .= $params['action'].'/';
                 foreach ($params as $key=>$value) {
