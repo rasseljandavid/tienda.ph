@@ -3084,7 +3084,6 @@ class storeController extends expController {
 		foreach($recs as $item) {
 			$products[] = new product($item->id, false, true);
 		}
-		   
  	//	$this->params['page'] += 1;
 		
         assign_to_template(array(
