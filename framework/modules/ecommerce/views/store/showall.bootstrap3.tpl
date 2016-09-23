@@ -21,7 +21,7 @@
      </div>
 	 
  	{if $page->page < $page->total_pages}
-    	<a class="jscroll-next" href="{$smarty.const.URL_FULL}index.php?controller=store&action=loadnextproducts&page={$page->page+1}&ajax_action=1&category={$current_category->id}&total={$page->total_pages}">Loading...</a>
+    	<a class="jscroll-next" href="{$smarty.const.URL_FULL}index.php?controller=store&action=loadnextproducts&page={$page->page+1}&ajax_action=1&category={$current_category->id}&total={$page->total_pages}"> </a>
 	{/if}
 </div>
 
@@ -35,9 +35,9 @@
 			
 			
 			$('.scroll').jscroll({
-			    loadingHtml: '<img src="{/literal}{$smarty.const.URL_FULL}{literal}ajax-loader.gif" alt="Loading" /> Loading...',
-			    padding: 20,
-			    nextSelector: 'a.jscroll-next:last',
+			    loadingHtml: '<img src="{/literal}{$smarty.const.URL_FULL}{literal}ajax-loader.gif" alt="Loading" />',
+			    padding: 500,
+			    nextSelector: 'a.jscroll-next:last'
 			});
 			
 		});
