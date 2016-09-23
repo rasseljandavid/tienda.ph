@@ -186,43 +186,24 @@ class storeController extends expController {
 
         expHistory::set('viewable', $this->params);
 		
-        if (empty($this->category->is_events)) {
-            $count_sql_start = 'SELECT COUNT(DISTINCT p.id) as c FROM ' . DB_TABLE_PREFIX . '_product p ';
+        $count_sql_start = 'SELECT COUNT(DISTINCT p.id) as c FROM ' . DB_TABLE_PREFIX . '_product p ';
 
-            $sql_start = 'SELECT DISTINCT p.*, IF(base_price > special_price AND use_special_price=1,special_price, base_price) as price FROM ' . DB_TABLE_PREFIX . '_product p ';
-            $sql = 'JOIN ' . DB_TABLE_PREFIX . '_product_storeCategories sc ON p.id = sc.product_id ';
-            $sql .= 'WHERE ';
-            if (!$user->isAdmin()) $sql .= '(p.active_type=0 OR p.active_type=1) AND ';
-            $sql .= 'sc.storecategories_id IN (';
-            $sql .= 'SELECT id FROM ' . DB_TABLE_PREFIX . "_storeCategories WHERE sef_url like '{$this->params['title']}')";
+        $sql_start = 'SELECT DISTINCT p.*, IF(base_price > special_price AND use_special_price=1,special_price, base_price) as price FROM ' . DB_TABLE_PREFIX . '_product p ';
+        $sql = 'JOIN ' . DB_TABLE_PREFIX . '_product_storeCategories sc ON p.id = sc.product_id ';
+        $sql .= 'WHERE p.quantity > 0 AND ';
+        if (!$user->isAdmin()) $sql .= '(p.active_type=0 OR p.active_type=1) AND ';
+        $sql .= 'sc.storecategories_id IN (';
+        $sql .= 'SELECT id FROM ' . DB_TABLE_PREFIX . "_storeCategories WHERE sef_url like '{$this->params['title']}')";
 
-            $count_sql = $count_sql_start . $sql;
-            $sql = $sql_start . $sql;
-			
+        $count_sql = $count_sql_start . $sql;
+        $sql = $sql_start . $sql;
 
 //            $order = 'title'; // $order = 'sc.rank'; //$this->config['orderby'];
 //            $dir = 'ASC'; //$this->config['orderby_dir'];
-            $order = !empty($this->params['order']) ? $this->params['order'] : $this->config['orderby'];
-            $dir = !empty($this->params['dir']) ? $this->params['dir'] : $this->config['orderby_dir'];
-            if (empty($order)) $order = 'title';
-            if (empty($dir)) $dir = 'ASC';
-        } else { // this is an event category
-            $sql_start = 'SELECT DISTINCT p.*, er.event_starttime, er.signup_cutoff FROM ' . DB_TABLE_PREFIX . '_product p ';
-            $count_sql_start = 'SELECT COUNT(DISTINCT p.id) as c, er.event_starttime, er.signup_cutoff FROM ' . DB_TABLE_PREFIX . '_product p ';
-            $sql = 'JOIN ' . DB_TABLE_PREFIX . '_product_storeCategories sc ON p.id = sc.product_id ';
-            $sql .= 'JOIN ' . DB_TABLE_PREFIX . '_eventregistration er ON p.product_type_id = er.id ';
-            $sql .= 'WHERE sc.storecategories_id IN (';
-            $sql .= 'SELECT id FROM ' . DB_TABLE_PREFIX . '_storeCategories WHERE rgt BETWEEN ' . $this->category->lft . ' AND ' . $this->category->rgt . ')';
-            if ($this->category->hide_closed_events) {
-                $sql .= ' AND er.signup_cutoff > ' . time();
-            }
-
-            $count_sql = $count_sql_start . $sql;
-            $sql = $sql_start . $sql;
-
-            $order = !empty($this->params['order']) ? $this->params['order'] : 'event_starttime';
-            $dir = !empty($this->params['dir']) ? $this->params['dir'] : 'ASC';
-        }
+        $order = !empty($this->params['order']) ? $this->params['order'] : $this->config['orderby'];
+        $dir = !empty($this->params['dir']) ? $this->params['dir'] : $this->config['orderby_dir'];
+        if (empty($order)) $order = 'title';
+        if (empty($dir)) $dir = 'ASC';
 
         if (empty($router->params['title']))  // we need to pass on the category for proper paging
             $router->params['title'] = $this->category->sef_url;
@@ -248,7 +229,7 @@ class storeController extends expController {
         } else { // there are no categories
             $page = new expPaginator(array(
                 'model_field' => 'product_type',
-                'sql'         => 'SELECT * FROM ' . DB_TABLE_PREFIX . '_product WHERE 1',
+                'sql'         => 'SELECT * FROM ' . DB_TABLE_PREFIX . '_product WHERE quantity > 0',
                 'limit'       => $limit,
                 'order'       => "rank",
                 'dir'         => "asc",
@@ -998,7 +979,7 @@ class storeController extends expController {
 
         $page = new expPaginator(array(
             'model_field' => 'product_type',
-            'sql'         => 'SELECT * FROM ' . DB_TABLE_PREFIX . '_product WHERE is_featured=1',
+            'sql'         => 'SELECT * FROM ' . DB_TABLE_PREFIX . '_product WHERE is_featured=1 and quantity > 0',
             'limit'       => ecomconfig::getConfig('pagination_default'),
             'order'       => $order,
             'dir'         => $dir,

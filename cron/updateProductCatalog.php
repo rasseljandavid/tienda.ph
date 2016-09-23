@@ -6,9 +6,16 @@
 	
 
 */
+$cats = getCategories();
+
 foreach($cats as $cat) {    
-	
-	$sc = $db->selectObject("storeCategories", "title ='{$cat->ProductCategoryName}'");
+
+	$sc = $db->selectObject("storeCategories", "id ='{$cat->ProductCategoryID}'");
+
+	if($cat->ProductCategoryDescription == "inactive" && !empty($sc->id)) {
+		$sc->is_active = 0;
+		$db->updateObject($sc, "storeCategories");
+	}
 	//Record already exist
 	if(!empty($sc->id)) {
 		$sc->title    = $cat->ProductCategoryName;
@@ -45,7 +52,7 @@ foreach($products as $item) {
 	
 	if(!empty($sc->id)) {
 		$sc->title   = $item->ProductDescription;
-		$sc->body    = $item->ProductLongDescription;
+		$sc->body    = $item->ProductLongDescription;	
 		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title));
 		$sc->model   = $item->ProductSKU;
 		$sc->base_price   = $item->ProductSellingPrice * 1.05;
@@ -60,7 +67,7 @@ foreach($products as $item) {
 		$sc->id      = $item->ProductID;
 		$sc->title   = $item->ProductDescription;
 		$sc->body    = $item->ProductLongDescription;
-		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title));
+		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title)) ;
 		$sc->model   = $item->ProductSKU;
 		$sc->base_price   = $item->ProductSellingPrice * 1.05;
 		$sc->special_price   = $item->ProductSellingPrice;
@@ -79,7 +86,9 @@ foreach($products as $item) {
 	$obj->product_id         = $item->ProductID;
 	$obj->product_type       = "product";
 	$obj->rank       		 = 0;
+	
 	$db->insertObject($obj, "product_storeCategories");
+
 }
 
 
