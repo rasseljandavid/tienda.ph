@@ -36,7 +36,7 @@
 			
 			$('.scroll').jscroll({
 			    loadingHtml: '<img src="{/literal}{$smarty.const.URL_FULL}{literal}ajax-loader.gif" alt="Loading" />',
-			    padding: 500,
+			    padding: 1500,
 			    nextSelector: 'a.jscroll-next:last'
 			});
 			

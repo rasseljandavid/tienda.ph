@@ -19,8 +19,7 @@
 {css unique="mega" lesscss="`$asset_path`less/yamm.less"}
 
 {/css}
-
-<nav id="topnavbar" class="navigation navbar yamm navbar-default" role="navigation">
+<nav id="topnavbar" class="navigation navbar yamm navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

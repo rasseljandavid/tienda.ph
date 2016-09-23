@@ -41,7 +41,7 @@
                     <?php expTheme::main(); ?>
                 </section>
                 <!-- left column -->
-                <aside id="sidebar" class="col-sm-2 col-sm-pull-10">
+                <aside id="sidebar">
                     <?php expTheme::module(array("controller"=>"container","action"=>"showall","view"=>"showall","source"=>"@left")); ?>
 
 					<?php expTheme::module(array("controller"=>"store","action"=>"showFullTree","source"=>"@leftnav")); ?>

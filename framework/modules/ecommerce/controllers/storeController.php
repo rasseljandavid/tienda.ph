@@ -207,7 +207,7 @@ class storeController extends expController {
 
         if (empty($router->params['title']))  // we need to pass on the category for proper paging
             $router->params['title'] = $this->category->sef_url;
-        $limit = !empty($this->config['limit']) ? $this->config['limit'] : (!empty($this->config['pagination_default']) ? $this->config['pagination_default'] : 16);
+        $limit = !empty($this->config['limit']) ? $this->config['limit'] : (!empty($this->config['pagination_default']) ? $this->config['pagination_default'] : 32);
         
         if ($this->category->find('count') > 0) { // there are categories
             $page = new expPaginator(array(
@@ -1092,7 +1092,7 @@ class storeController extends expController {
 
     function showFullTree() {  //FIXME we also need a showFullTree_images method like above
         global $db;
-        
+
         $categories = $db->selectObjects("storeCategories");
         // $curr_cat = new storeCategory($this->params[''])
         // $curcat = $this->category;

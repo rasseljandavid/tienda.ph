@@ -159,10 +159,7 @@ a.navbar-brand {
 }
 /* Left Category Navigation */
 #sidebar {
-  margin-left: -15px;
-}
-#catnav {
-  margin-top: 20px;
+  position: fixed;
 }
 #catnav ul {
   padding-left: 0;
