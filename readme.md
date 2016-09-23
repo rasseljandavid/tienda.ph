@@ -1,27 +1,67 @@
-## Laravel PHP Framework
+#Exponent Content Management System
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+----------
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Copyright (c) 2004-2015 OIC Group, Inc.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+For installation information, please read the [INSTALLATION.md](INSTALLATION.md) file.
 
-## Official Documentation
+For LICENSING information, please read the [LICENSE](LICENSE) file.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+For questions, support, or further information, please visit
+[http://www.exponentcms.org/](http://www.exponentcms.org/)
 
-## Contributing
+Exponent CMS 2.0 is an exciting web-based content management system. It makes
+creating and maintaining websites easy for non-technical users, while
+providing site managers the power and flexibility to add new features,
+completely customize the layout, and delegate responsibilities to other
+users.  For more information, see the [ABOUT.md](ABOUT.md) file.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+------------
 
-## Security Vulnerabilities
+##Getting Started
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+First, you'll need to install and configure Exponent. See the [INSTALLATION.md](INSTALLATION.md)
+file for a detailed description of how to do this.
 
-### License
+------------
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+##Current Version and Changes
+
+The current version is found in the [RELEASE.md](RELEASE.md) file.
+For more detailed changes see the [CHANGELOG.md](CHANGELOG.md) file.
+
+------------
+
+##Contributing
+
+Exponent is Open Source, licensed under the GPL.  To read about the
+specifics of the GPL, please see the [LICENSE](LICENSE) file.
+
+You are free to use and redistribute it, and make changes / fix bugs. The
+Exponent development team encourages you to get involved. We are currently
+looking for contributions in the following area:
+
+* Development - Those able and willing to contribute development skills are 
+encouraged to join in.  Simply fork this repository, hack away, and submit a pull 
+request. We'll take a look at your code and changes
+* Documentation - If you're interested in helping with documentation, 
+contact us through the forums [http://forums.exponentcms.org](http://forums.exponentcms.org) and we'll advise you
+as to where to contribute documentation.
+* Testing - As with every software application, there are bound to be
+bugs. We think the system is stable enough to use, but we are always
+looking for more testers; people to use and abuse the CMS and expose bugs.
+The more bugs we find and fix, the better off the package is.
+
+[Credits](CREDITS.md)
+
+-------------------
+
+##Support / Questions
+For questions, support, or further information, please visit
+
+* [http://www.exponentcms.org/](http://www.exponentcms.org/)
+
+* [http://forums.exponentcms.org/](http://forums.exponentcms.org/)
+
+* [http://docs.exponentcms.org/](http://docs.exponentcms.org/)
