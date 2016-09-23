@@ -19,7 +19,7 @@ foreach($cats as $cat) {
 		$sc->id       = $cat->ProductCategoryID;
 		$sc->title    = $cat->ProductCategoryName;
 		$sc->is_active = 1;
-		$sc->sef_url = $router->encode($sc->title);
+		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title));
 		$db->insertObject($sc, "storeCategories");
 	}
 	/*
@@ -46,7 +46,7 @@ foreach($products as $item) {
 	if(!empty($sc->id)) {
 		$sc->title   = $item->ProductDescription;
 		$sc->body    = $item->ProductLongDescription;
-		$sc->sef_url = $router->encode($sc->title);
+		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title));
 		$sc->model   = $item->ProductSKU;
 		$sc->base_price   = $item->ProductSellingPrice * 1.05;
 		$sc->special_price   = $item->ProductSellingPrice;
@@ -60,7 +60,7 @@ foreach($products as $item) {
 		$sc->id      = $item->ProductID;
 		$sc->title   = $item->ProductDescription;
 		$sc->body    = $item->ProductLongDescription;
-		$sc->sef_url = $router->encode($sc->title);
+		$sc->sef_url = str_replace("+", "plus", $router->encode($sc->title));
 		$sc->model   = $item->ProductSKU;
 		$sc->base_price   = $item->ProductSellingPrice * 1.05;
 		$sc->special_price   = $item->ProductSellingPrice;
