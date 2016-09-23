@@ -1092,11 +1092,16 @@ class storeController extends expController {
 
     function showFullTree() {  //FIXME we also need a showFullTree_images method like above
         global $db;
+        
         $categories = $db->selectObjects("storeCategories");
-        $curcat = $this->category;
+        // $curr_cat = new storeCategory($this->params[''])
+        // $curcat = $this->category;
+        if(!empty($_GET['title'])) {
+            $curcat = new storeCategory($_GET['title']);
+        }
         assign_to_template(array(
             'categories_arr' => $categories,
-            'curcat'     => $curcat,
+            'curcat'     => @$curcat,
             'topcat'     => @$ancestors[0]
         ));
     }
